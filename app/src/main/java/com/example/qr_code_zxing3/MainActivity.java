@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         Button btn_scan, btn_stop_scan;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn_scan=findViewById(R.id.btn_scan);
-        btn_stop_scan=findViewById(R.id.btn_stop_scan);
-        QRResult=findViewById(R.id.txv_result);
-        scannerView = findViewById(R.id.scannerView);
+        btn_scan=(Button)findViewById(R.id.btn_scan);
+        btn_stop_scan=(Button)findViewById(R.id.btn_stop_scan);
+        QRResult=(TextView)findViewById(R.id.txv_result);
+        scannerView=findViewById(R.id.scannerView);
 
         requestPermissions(new String[]{Manifest.permission.CAMERA},1);
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                 requestPermissions(new String[]{Manifest.permission.CAMERA},1);
             }
             else {
-                QRResult.setText(" ");
+                QRResult.setText("開始掃描");
                 scannerView.startCamera();
                 scannerView.setResultHandler(this);
             }
